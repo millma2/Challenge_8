@@ -1,0 +1,67 @@
+one_nine = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
+ten_twenty = ['ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen']
+tens = ['twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety']
+hundreds = ['onehundred', 'twohundred', 'threehundred', 'fourhundred', 'sixhundred', 'sevenhundred', 'eighthundred']
+total = 0
+total_to_100 = 0
+total_hundred = 0
+one_to_two = len(hundreds[0] + hundreds[1])
+
+
+'''counts lists individually'''
+for i in one_nine: #counts numbers one through nine
+   total += len(i)
+   total_to_100 += len(i)
+print(total)
+
+
+for i in ten_twenty: #counts ten to nineteen
+   total += len(i)
+   total_to_100 += len(i)
+print(total)
+
+for i in tens: #counts tens, not including ten
+   total += len(i)
+   total_to_100 += len(i)
+
+total_to_100 += len(hundreds[0])
+
+for i in hundreds: #counts hundreds, makes sure not to leave a space
+   total += len(i)
+   total_hundred += len(i)
+
+'''counts all tens'''
+for x in tens: # checks for tens spots for one through nine for each number
+   for y in one_nine:
+       total += len(x) + len(y)
+       total_to_100 += len(x) + len(y)
+
+print(total_to_100)
+
+
+'''Counts for hundreds'''
+for x in hundreds: #counts each hundredths place plus one through nine
+   for y in one_nine:
+       total += len(x) + len(y) + 3 #3 added for 'and'
+
+
+for x in hundreds: #counts each hundredths place teen numbers
+   for y in ten_twenty:
+       total += len(x) + len(y) + 3
+
+
+for x in hundreds: #counts each hundredths place plus tens place
+   for y in tens:
+       total += len(x) + len(y) + 3
+
+
+for x in hundreds: #counts each hundredths place plus tens, plus one through nine
+   for y in tens:
+       for z in one_nine:
+           total += len(x) + len(y) + len(z) + 3
+
+
+total += len('ninehundred')
+
+
+print(total)
