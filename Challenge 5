@@ -1,25 +1,9 @@
-def s(word_list, word):
-  i = 0
-  while i < len(word_list):
-    if word == word_list[i]: 
-      print(i)
-      break
-    elif word < word_list[i]: 
-      print("Fail") 
-      break
-    else: i += 1
-  if i >= len(word_list): 
-    print("Fail")
-
 def recursive(word_list, word):
-  if len(word_list) == 0:
-    return 'Done'
-  if word in word_list:
-    print(word_list.index(word))
-    word = input()
-    return recursive(word_list[1:], word)
-  if word != word_list[0]:
-    return 'Fail'
+  '''Takes in a word list and a word and presents the index of it'''
 
-words = ["Are", "Body", "Career", "Computer", "Dam", "Mathematics", "Science", "Ugh", "Why"]
-print(recursive(words, 'Ugh'))
+  if len(word_list) == 0:
+    print('Fail')
+    return 0 #ends the code and prints fail when word isn't found
+  if word.lower() == word_list[0].lower():
+    return 0 #ends the code when we reached the correct index
+  return 1 + recursive(word_list[1:], word) #recursion used here
