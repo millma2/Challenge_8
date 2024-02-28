@@ -1,0 +1,25 @@
+def s(word_list, word):
+  i = 0
+  while i < len(word_list):
+    if word == word_list[i]: 
+      print(i)
+      break
+    elif word < word_list[i]: 
+      print("Fail") 
+      break
+    else: i += 1
+  if i >= len(word_list): 
+    print("Fail")
+
+def recursive(word_list, word):
+  if len(word_list) == 0:
+    return 'Done'
+  if word in word_list:
+    print(word_list.index(word))
+    word = input()
+    return recursive(word_list[1:], word)
+  if word != word_list[0]:
+    return 'Fail'
+
+words = ["Are", "Body", "Career", "Computer", "Dam", "Mathematics", "Science", "Ugh", "Why"]
+print(recursive(words, 'Ugh'))
