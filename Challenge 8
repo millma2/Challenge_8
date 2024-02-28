@@ -1,11 +1,21 @@
 one_nine = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
 ten_twenty = ['ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen']
 tens = ['twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety']
-hundreds = ['onehundred', 'twohundred', 'threehundred', 'fourhundred', 'sixhundred', 'sevenhundred', 'eighthundred']
+hundreds = ['onehundred', 'twohundred', 'threehundred', 'fourhundred','fivehundred', 'sixhundred', 'sevenhundred', 'eighthundred']
 total = 0
 total_to_100 = 0
 total_hundred = 0
 one_to_two = len(hundreds[0] + hundreds[1])
+for i in one_nine:
+   one_to_two += len(i) + len(hundreds[0]) + 3
+for i in ten_twenty:
+   one_to_two += len(i) + len(hundreds[0]) + 3
+for i in tens:
+   one_to_two += len(i) + len(hundreds[0]) + 3
+for x in tens:
+   for y in one_nine:
+      one_to_two += len(x) + len(y) + len(hundreds[0]) + 3
+print(one_to_two)
 
 
 '''counts lists individually'''
